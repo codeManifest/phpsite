@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Selected Images</title>
+    <style>
+        .preview-image {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="images">Select multiple images:</label>
+        <input type="file" name="images[]" id="images" multiple accept="image/*" onchange="displaySelectedImages(event)">
+        <button type="submit">Upload</button>
+    </form>
+
+    <div id="imagePreview"></div>
+
+    <script>
+        function displaySelectedImages(event) {
+            const previewContainer = document.getElementById('imagePreview');
+            previewContainer.innerHTML = ''; // Clear previous previews
+
+            const files = event.target.files;
+
+            for (const file of files) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    imgElement.classList.add('preview-image');
+
+                    previewContainer.appendChild(imgElement);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    <style>
+        /* Add some styling for the preview images */
+        .preview-image {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+    </style>
+
+</body>
+
+</html>
