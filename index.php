@@ -21,7 +21,9 @@
 
       
       <?php include './component/productsgrp.php' ?>
+      <?php include './component/products.php' ?>
     </div>
+    
     
   </main>
 

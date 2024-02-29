@@ -1,4 +1,4 @@
-<div class="min-h-[40vh] bg-white shadow-lg p-5">
+<div class="min-h-[40vh] bg-white  ">
     <h1 class="pt-2 pb-4 text-xl font-semibold" >Best Women Deal</h1>
 
     <div class="min-h-[10vh] flex gap-3  justify-center flex-wrap  " >
