@@ -13,10 +13,17 @@
 
 </head>
 <body>
+  
   <?php include './component/nav.php' ?>
-  <?php include './component/carousal.php' ?>
-  <?php include './component/products.php' ?>
+  <main>
+    <?php include './component/carousal.php' ?>
+    <div class="p-5" >
 
+      
+      <?php include './component/productsgrp.php' ?>
+    </div>
+    
+  </main>
 
 
   
