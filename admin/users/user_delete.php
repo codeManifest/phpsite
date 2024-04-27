@@ -2,7 +2,7 @@
  
  
  <?php
- include_once '../config/config.php';
+ include_once '../../config/config.php';
 
  // Check if 'Id' is set in the URL
  if (isset($_GET['Id'])) {
@@ -10,14 +10,14 @@
      $Id = mysqli_real_escape_string($conn, $_GET['Id']);
  
      // Construct the DELETE query
-     $deleteRecords = "DELETE FROM product WHERE Id = $Id";
+     $deleteRecords = "DELETE FROM users WHERE Id = $Id";
  
      // Execute the query
      $result = $conn->query($deleteRecords);
  
      if ($result === TRUE) {
          echo "Record with ID $Id deleted successfully";
-         header('location: dashboard.php?action=manage');
+         header('location: http://localhost/shogoup/phpsite/admin/dashboard.php?action=users');
      } else {
          echo "Error deleting record: " . $conn->error;
      }

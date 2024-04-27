@@ -1,14 +1,25 @@
 
-
+<?php
+// session_start()
+?>
 
 <section>
-    <?php if (isset($_POST['additems'])) {
-        header('location:dashboard.php?action=insert');
+    
+
+
+    
+    <?php
+     
+    
+    
+    
+    if (isset($_POST['additems'])) {
+        header('location:dashboard.php?action=users');
         # code...
     } ?>
 
-    <a href="http://localhost/shogoup/phpsite/admin/dashboard.php?action=insert" class="py-2  px-3 bg-blue-500 text-white rounded-lg m-2" name="additem" >
-        Add items +
+    <a href="http://localhost/shogoup/phpsite/admin/users/user_insert.php" class="py-2  px-3 bg-blue-500 text-white rounded-lg m-2" name="additem" >
+        Add User +
     </a>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -24,16 +35,16 @@
                         Id
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Product Name
+                        Name 
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Stock
+                        User Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Category
+                        Email
                     </th>
                     <th scope="col" class="px-6 py-3">
-                      Price  
+                      User Role  
                     </th>
                     
                     <th scope="col" class="px-6 py-3">
@@ -45,12 +56,12 @@
 
 
 <?php  
- include_once '../config/config.php';
+
 
  $new_table=
 
 
-$sql=" SELECT * FROM product ";
+$sql=" SELECT * FROM users ";
 $result_list = $conn->query($sql);
 if ($result_list->num_rows > 0) {
     while ($row = $result_list->fetch_assoc()) {
@@ -69,22 +80,22 @@ if ($result_list->num_rows > 0) {
         $row[Id] 
     </th>
     <td class='px-6 py-4'>
-     $row[product_name]
+     $row[_name]
     </td>
     <td class='px-6 py-4'>
-      $row[stock] 
+      $row[Username] 
     </td>
     <td class='px-6 py-4'>
-    $row[category_Id]
+    $row[email]
         
     </td>
     <td class='px-6 py-4'>
-    ₹ $row[price] 
+     $row[_Role] 
     </td>
     
     <td class='flex items-center px-6 py-4'>
-        <a href=edit.php?Id=".$row['Id']." name=edit class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
-        <a href=delete.php?Id=".$row['Id']." class='font-medium text-red-600 dark:text-red-500 hover:underline ms-3'>Remove</a>
+        <a href=users/user_edit.php?Id=".$row['Id']." name=edit class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
+        <a href=users/user_delete.php?Id=".$row['Id']." class='font-medium text-red-600 dark:text-red-500 hover:underline ms-3'>Remove</a>
     </td>
 </tr>
 ";

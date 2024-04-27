@@ -129,3 +129,23 @@ else {
 </body>
 
 </html>
+
+
+
+
+$primarytable="CREATE TABLE IF NOT EXIST product(
+        Id INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
+        product_name VARCHAR(150) NOT NULL,
+             price DOUBLE(10,2) NOT NULL,
+              stock INT NOT NULL, discount INT,
+               delivery_charge DOUBLE(10,2),
+               category VARCHAR(20) NOT NULL,
+               size VARCHAR(5) NOT NULL,
+               images VARCHAR(150) NOT NULL,
+               colors VARCHAR(20) NOT NULL,
+            FOREIGN KEY (category) REFERENCES category(Id),
+            FOREIGN KEY (size) REFERENCES size(Id),
+            FOREIGN KEY (images) REFERENCES images(Id),
+            FOREIGN KEY (colors) REFERENCES colors(Id) 
+
+    )";
